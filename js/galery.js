@@ -90,6 +90,12 @@ gallery.addEventListener("click", (event) => {
   const clickedImage = event.target;
 
   if (clickedImage.nodeName !== "IMG") return;
+
   const largeImageURL = clickedImage.dataset.source;
-  console.log("Link on large image:", largeImageURL);
+
+  const instance = basicLightbox.create(`
+    <img src="${largeImageURL}" alt="${clickedImage.alt}" />
+  `);
+
+  instance.show();
 });
